@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1></h1>
+    <button>Increment</button>
+    <button>Decrement</button>
+  </body>
+</html>
+
+<script>
+  // let counter ;
+  // if(localStorage.getItem("localCounter")==null){
+  //     counter = 0;
+  // }
+  // else{
+  // counter = localStorage.getItem("localCounter");
+  // }
+
+  // second method without useing if else condition
+
+  let counter = localStorage.getItem("localCounter") || 0;
+  document.querySelector("h1").innerText = counter;
+  document.querySelector("h1+button").addEventListener("click", incFun);
+  function incFun() {
+    counter++;
+    document.querySelector("h1").innerText = counter;
+    localStorage.setItem("localCounter", counter);
+  }
+  document.querySelector("button+button").addEventListener("click", decFun);
+  function decFun() {
+    counter--;
+    document.querySelector("h1").innerText = counter;
+    localStorage.setItem("localCounter", counter);
+  }
+
+  // console.log(false||true);
+  // console.log(false||false);
+  // console.log(true||true);
+  // or condition even if one condition is true out is true.
+  // if first conditon is true, it will ignore 2nd condition
+  // if first condition is false it will check 2nd condition also
+  // console.log(null||true);
+  // console.log(true||null);
+  // console.log(null||"string");
+  console.log(null || 1);
+</script>
